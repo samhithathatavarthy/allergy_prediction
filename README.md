@@ -3,11 +3,15 @@
 
 ## Introduction
 
-Welcome to our project on predicting allergies using machine learning! In this GitHub README, we provide an overview of our research, data requirements, and objectives.
+Welcome to my project on predicting allergies using machine learning! In this GitHub README, we provide an overview of our research, data requirements, and objectives.
 
 ## Research Question
 
 **Can Genetic Data and Historical Allergy Patterns Predict Susceptibility to Seasonal and Food Allergies?**
+
+## Project Overview
+
+Our project is a continuation of previous research, particularly the study titled "Transgenerational Development of Food Allergies and Allergic Rhinitis." In this earlier work, we delved into the transgenerational aspects of allergy development. Now, we are taking this knowledge a step further by incorporating modern machine learning techniques to create an application that helps users understand their allergy susceptibility based on their unique genetic makeup and historical allergy patterns.
 
 Allergies can significantly impact an individual's quality of life, and understanding one's susceptibility to allergies is crucial for personalized healthcare.
 
@@ -41,12 +45,6 @@ In addition to user-specific data, we'll leverage a comprehensive general data s
 
 To ensure the quality and reliability of our dataset, we will begin by cleaning and preprocessing the data. This critical step involves handling missing values, encoding categorical variables, and scaling numerical features, setting the foundation for robust analysis and modeling.
 
-## Project Overview
-
-Our project is a continuation of previous research, particularly the study titled "Transgenerational Development of Food Allergies and Allergic Rhinitis." In this earlier work, we delved into the transgenerational aspects of allergy development. Now, we are taking this knowledge a step further by incorporating modern machine learning techniques to create an application that helps users understand their allergy susceptibility based on their unique genetic makeup and historical allergy patterns.
 
 Stay tuned for updates as we make progress with our research and application development!
 
----
-
-Feel free to copy and paste this content into your GitHub README and further customize it as needed to match your style and project's specific requirements. Good luck with your project!
