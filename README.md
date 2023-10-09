@@ -14,7 +14,7 @@ Allergies can significantly impact an individual's quality of life, and understa
 
 ## Project Overview
 
-Our project is a continuation of previous research, particularly the study titled "Transgenerational Development of Food Allergies and Allergic Rhinitis." In this earlier work, we delved into the transgenerational aspects of allergy development. Now, we are taking this knowledge a step further by incorporating modern machine learning techniques to create an application that helps users understand their allergy susceptibility based on their unique genetic makeup and historical allergy patterns.
+My project is a continuation of previous research,  the study titled "Transgenerational Development of Food Allergies and Allergic Rhinitis." In this earlier work, we delved into the transgenerational aspects of allergy development. Now, we are taking this knowledge a step further by incorporating modern machine learning techniques to create an application that helps users understand their allergy susceptibility based on their unique genetic makeup and historical allergy patterns.
 
 ## Abstract from Previous Paper (Summarized)
 
