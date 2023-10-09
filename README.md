@@ -1,4 +1,4 @@
-# allergy_prediction
+# Allergy_prediction
 # Predicting Allergies Using Machine Learning
 
 ## Introduction
@@ -11,7 +11,7 @@ Welcome to my project on predicting allergies using machine learning! In this Gi
 
 ## Project Overview
 
-Our project is a continuation of previous research, particularly the study titled "Transgenerational Development of Food Allergies and Allergic Rhinitis." In this earlier work, we delved into the transgenerational aspects of allergy development. Now, we are taking this knowledge a step further by incorporating modern machine learning techniques to create an application that helps users understand their allergy susceptibility based on their unique genetic makeup and historical allergy patterns.
+This project is a continuation of my previous research,  the study titled "Transgenerational Development of Food Allergies and Allergic Rhinitis." In this earlier work, we delved into the transgenerational aspects of allergy development. Now, we are taking this knowledge a step further by incorporating modern machine learning techniques to create an application that helps users understand their allergy susceptibility based on their unique genetic makeup and historical allergy patterns.
 
 Allergies can significantly impact an individual's quality of life, and understanding one's susceptibility to allergies is crucial for personalized healthcare.
 
