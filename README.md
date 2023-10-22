@@ -55,40 +55,63 @@ In addition to user-specific data, I'll leverage a comprehensive general data se
 To ensure the quality and reliability of my dataset, I will begin by cleaning and preprocessing the data. This critical step involves handling missing values, encoding categorical variables, and scaling numerical features, setting the foundation for robust analysis and modeling.
 
 
+#code 2.0
+# Import necessary libraries for creating a basic user interface
+import tkinter as tk
+from tkinter import messagebox
 
-# new code below
-# Import necessary libraries
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report
+# Define a function to display a message when the user clicks the "Submit" button
+def submit_answers():
+    answers = [
+        q1_var.get(),
+        q2_var.get(),
+        q3_var.get(),
+    ]
+    
+    # Customize the messages based on the user's answers
+    message = "Thank you for completing the allergy questionnaire!\n\n"
+    
+    if "Yes" in answers:
+        message += "It appears you have or know someone with allergies. Make sure to stay informed about allergens."
+    else:
+        message += "It looks like you don't have any known allergies. Keep staying healthy!"
+    
+    messagebox.showinfo("Allergy Questionnaire", message)
 
-# Load your dataset
-data = pd.read_csv("import numpy as np # linear algebra import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv) ​ # Input data files are available in the read-only "../input/" directory # For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory ​ import os for dirname, _, filenames in os.walk('/kaggle/input'):     for filename in filenames:         print(os.path.join(dirname, filename))")  # Replace "import numpy as np # linear algebra import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv) ​ # Input data files are available in the read-only "../input/" directory # For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory ​ import os for dirname, _, filenames in os.walk('/kaggle/input'):     for filename in filenames:         print(os.path.join(dirname, filename))" with your dataset
+# Create a GUI window
+root = tk.Tk()
+root.title("Allergy Questionnaire")
 
-# Split the data into features and target variable
-X = data.drop(columns=["allergic"])
-y = data["allergic"]
+# Create question labels
+question1 = tk.Label(root, text="Q1: Do you have any known allergies?")
+question2 = tk.Label(root, text="Q2: Have you ever experienced an allergic reaction to food?")
+question3 = tk.Label(root, text="Q3: Do you take any allergy medication?")
 
-# Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Create answer options
+options = ["Yes", "No"]
 
-# Initialize and train a random forest classifier
-clf = RandomForestClassifier(n_estimators=100, random_state=42)
-clf.fit(X_train, y_train)
+# Create variables to store the user's answers
+q1_var = tk.StringVar(root)
+q2_var = tk.StringVar(root)
+q3_var = tk.StringVar(root)
 
-# Make predictions on the test set
-y_pred = clf.predict(X_test)
+# Create dropdown menus for user selection
+q1_dropdown = tk.OptionMenu(root, q1_var, *options)
+q2_dropdown = tk.OptionMenu(root, q2_var, *options)
+q3_dropdown = tk.OptionMenu(root, q3_var, *options)
 
-# Calculate and print accuracy and classification report
-accuracy = accuracy_score(y_test, y_pred)
-print(f"Accuracy: {accuracy}")
-print(classification_report(y_test, y_pred))
+# Create a "Submit" button to get user input
+submit_button = tk.Button(root, text="Submit", command=submit_answers)
 
-# Save the trained model for future use
-import joblib
-joblib.dump(clf, "allergy_model.pkl")  # Save the model to a file
+# Place widgets in the window
+question1.pack()
+q1_dropdown.pack()
+question2.pack()
+q2_dropdown.pack()
+question3.pack()
+q3_dropdown.pack()
+submit_button.pack()
 
-
----
+# Start the GUI event loop
+root.mainloop()
 
