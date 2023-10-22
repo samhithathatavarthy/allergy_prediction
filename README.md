@@ -56,36 +56,25 @@ To ensure the quality and reliability of my dataset, I will begin by cleaning an
 
 
 #python code
+# Sample Code
+
+Explore these code snippets to get a glimpse of how we can work with allergy-related data using Python.
+
+## Data Preprocessing
+
+```python
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-# Load or generate sample data
-data = pd.DataFrame({'feature1': [1, 2, 3, 4, 5],
-                     'feature2': [0.1, 0.2, 0.3, 0.4, 0.5],
-                     'target': [0, 1, 0, 1, 0]})
+# Load or generate sample allergy data
+data = pd.DataFrame({'Age': [25, 30, 35, 40, 45],
+                     'Gender': ['Male', 'Female', 'Male', 'Female', 'Male'],
+                     'SeasonalAllergy': [1, 0, 1, 0, 1],
+                     'FoodAllergy': [0, 1, 1, 0, 1]})
 
 # Split data into training and testing sets
-X = data[['feature1', 'feature2']]
-y = data['target']
+X = data[['Age', 'Gender']]
+y = data[['SeasonalAllergy', 'FoodAllergy']]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-from sklearn.tree import DecisionTreeClassifier
-
-# Train a machine learning model (e.g., Decision Tree)
-model = DecisionTreeClassifier()
-model.fit(X_train, y_train)
-
-# Make predictions on the test data
-predictions = model.predict(X_test)
-
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-
-# Evaluate the model's performance
-accuracy = accuracy_score(y_test, predictions)
-report = classification_report(y_test, predictions)
-confusion = confusion_matrix(y_test, predictions)
-
-print("Accuracy:", accuracy)
-print("Classification Report:\n", report)
-print("Confusion Matrix:\n", confusion)
 
