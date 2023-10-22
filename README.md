@@ -55,24 +55,34 @@ In addition to user-specific data, I'll leverage a comprehensive general data se
 To ensure the quality and reliability of my dataset, I will begin by cleaning and preprocessing the data. This critical step involves handling missing values, encoding categorical variables, and scaling numerical features, setting the foundation for robust analysis and modeling.
 
 
-# Sample Code
+# Sample Code + Data Preprocessing
 
-Explore these code snippets to get a glimpse of how we can work with allergy-related data using Python.
-
-## Data Preprocessing
+Explore these code snippets to understand how to work with comprehensive allergy-related data, including demographics, pets, and location, using Python.
 
 ```python
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
 
-# Load or generate sample allergy data
-data = pd.DataFrame({'Age': [25, 30, 35, 40, 45],
-                     'Gender': ['Male', 'Female', 'Male', 'Female', 'Male'],
-                     'SeasonalAllergy': [1, 0, 1, 0, 1],
-                     'FoodAllergy': [0, 1, 1, 0, 1]})
+# Load or generate comprehensive allergy data
+data = pd.DataFrame({'Age': [25, 30, 35, 40, 45, 28, 32, 37, 42, 47],
+                     'Gender': ['Male', 'Female', 'Male', 'Female', 'Male', 'Female', 'Male', 'Female', 'Male', 'Female'],
+                     'Ethnicity': ['Caucasian', 'African American', 'Hispanic', 'Asian', 'Caucasian', 'African American', 'Hispanic', 'Asian', 'Caucasian', 'African American'],
+                     'FoodHabits': ['Vegetarian', 'Non-Vegetarian', 'Vegan', 'Non-Vegetarian', 'Vegetarian', 'Vegan', 'Non-Vegetarian', 'Vegan', 'Vegetarian', 'Non-Vegetarian'],
+                     'Pets': ['Dog', 'Cat', 'None', 'Dog', 'None', 'Cat', 'Dog', 'None', 'Dog', 'Cat'],
+                     'Location': ['Urban', 'Suburban', 'Rural', 'Urban', 'Suburban', 'Rural', 'Urban', 'Suburban', 'Urban', 'Rural'],
+                     'SeasonalAllergy': [1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+                     'FoodAllergy': [0, 1, 1, 0, 1, 0, 1, 0, 0, 1]})
+
+# Encode categorical variables (e.g., Gender, Ethnicity, FoodHabits, Pets, Location)
+label_encoder = LabelEncoder()
+data['Gender'] = label_encoder.fit_transform(data['Gender'])
+data['Ethnicity'] = label_encoder.fit_transform(data['Ethnicity'])
+data['FoodHabits'] = label_encoder.fit_transform(data['FoodHabits'])
+data['Pets'] = label_encoder.fit_transform(data['Pets'])
+data['Location'] = label_encoder.fit_transform(data['Location'])
 
 # Split data into training and testing sets
-X = data[['Age', 'Gender']]
+X = data[['Age', 'Gender', 'Ethnicity', 'FoodHabits', 'Pets', 'Location']]
 y = data[['SeasonalAllergy', 'FoodAllergy']]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
