@@ -55,53 +55,37 @@ In addition to user-specific data, I'll leverage a comprehensive general data se
 To ensure the quality and reliability of my dataset, I will begin by cleaning and preprocessing the data. This critical step involves handling missing values, encoding categorical variables, and scaling numerical features, setting the foundation for robust analysis and modeling.
 
 
+#python code
+import pandas as pd
+from sklearn.model_selection import train_test_split
 
+# Load or generate sample data
+data = pd.DataFrame({'feature1': [1, 2, 3, 4, 5],
+                     'feature2': [0.1, 0.2, 0.3, 0.4, 0.5],
+                     'target': [0, 1, 0, 1, 0]})
 
-# Allergy Questionnaire
+# Split data into training and testing sets
+X = data[['feature1', 'feature2']]
+y = data['target']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-Welcome to the Allergy Questionnaire! We'd love to hear about your experiences with allergies. Answer this simple question to get started:
+from sklearn.tree import DecisionTreeClassifier
 
-**Sample Question:**
-- **Have you ever experienced seasonal allergies, such as hay fever?**
-  - [ ] Yes
-  - [ ] No
+# Train a machine learning model (e.g., Decision Tree)
+model = DecisionTreeClassifier()
+model.fit(X_train, y_train)
 
-Please check the appropriate box to indicate your response. If you're interested in sharing more about your allergies, feel free to explore the full questionnaire below.
+# Make predictions on the test data
+predictions = model.predict(X_test)
 
-## Allergy Questionnaire
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
-### Question 1: Seasonal Allergies
-- **Have you ever experienced seasonal allergies, such as hay fever?**
-  - [ ] Yes
-  - [ ] No
+# Evaluate the model's performance
+accuracy = accuracy_score(y_test, predictions)
+report = classification_report(y_test, predictions)
+confusion = confusion_matrix(y_test, predictions)
 
-### Question 2: Food Allergies
-- **Do you have any known food allergies?**
-  - [ ] Yes
-  - [ ] No
-
-### Question 3: Allergic Reactions
-- **Have you ever had a severe allergic reaction (anaphylaxis)?**
-  - [ ] Yes
-  - [ ] No
-
-### Question 4: Allergy Medication
-- **Do you currently take any medication for allergies?**
-  - [ ] Yes
-  - [ ] No
-
-### Question 5: Allergen Avoidance
-- **What precautions do you take to avoid allergens in your daily life? (Check all that apply)**
-  - [ ] Avoiding specific foods
-  - [ ] Using air purifiers
-  - [ ] Keeping windows closed during high pollen seasons
-  - [ ] Other (please specify): [Your answer]
-
-...
-
-[Continue with more questions or instructions]
-
-## About This Project
-
-This project aims to gather insights and experiences related to allergies. Your responses will help us understand and raise awareness about allergy-related issues. Feel free to contribute by answering the questionnaire and exploring the project details.
+print("Accuracy:", accuracy)
+print("Classification Report:\n", report)
+print("Confusion Matrix:\n", confusion)
 
