@@ -55,19 +55,15 @@ In addition to user-specific data, I'll leverage a comprehensive general data se
 To ensure the quality and reliability of my dataset, I will begin by cleaning and preprocessing the data. This critical step involves handling missing values, encoding categorical variables, and scaling numerical features, setting the foundation for robust analysis and modeling.
 
 
-#python code
+# Sample Code
+
+Explore these code snippets to get a glimpse of how we can work with allergy-related data using Python.
+
+```python
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+# Load or generate sample allergy data
 data = pd.DataFrame({'Age': [25, 30, 35, 40, 45],
                      'Gender': ['Male', 'Female', 'Male', 'Female', 'Male'],
                      'SeasonalAllergy': [1, 0, 1, 0, 1],
-                     'FoodAllergy': [0, 1, 1, 0, 1]})
-X = data[['Age', 'Gender']]
-y = data[['SeasonalAllergy', 'FoodAllergy']]
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-from sklearn.tree import DecisionTreeClassifier
-seasonal_model = DecisionTreeClassifier()
-seasonal_model.fit(X_train, y_train['SeasonalAllergy'])
-food_model = DecisionTreeClassifier()
-food_model.fit(X_train, y_train['FoodAllergy'])
-
-
-
