@@ -56,17 +56,6 @@ To ensure the quality and reliability of my dataset, I will begin by cleaning an
 
 
 #python code
-# Sample Code
-
-Explore these code snippets to get a glimpse of how we can work with allergy-related data using Python.
-
-## Data Preprocessing
-
-```python
-import pandas as pd
-from sklearn.model_selection import train_test_split
-
-# Load or generate sample allergy data
 data = pd.DataFrame({'Age': [25, 30, 35, 40, 45],
                      'Gender': ['Male', 'Female', 'Male', 'Female', 'Male'],
                      'SeasonalAllergy': [1, 0, 1, 0, 1],
