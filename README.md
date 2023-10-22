@@ -55,7 +55,7 @@ In addition to user-specific data, I'll leverage a comprehensive general data se
 To ensure the quality and reliability of my dataset, I will begin by cleaning and preprocessing the data. This critical step involves handling missing values, encoding categorical variables, and scaling numerical features, setting the foundation for robust analysis and modeling.
 
 
-# Sample Code + Data Preprocessing
+### Sample Code
 
 Explore these code snippets to understand how to work with comprehensive allergy-related data, including demographics, pets, and location, using Python.
 
