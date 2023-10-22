@@ -44,7 +44,7 @@ To address this research question effectively, there is a need of two main types
 - Any allergy symptoms experienced in the past (e.g., sneezing, itching, hives)
 - Current medications or treatments for allergies (if applicable)
 - Known food allergies
-- Option to connect with genetic testing services (e.g., 23andMe) for more personalized results.
+- Option to connect with genetic testing services (e.g., Ancestry) for more personalized results.
 
 ### General Data Set
 
@@ -67,22 +67,40 @@ from sklearn.preprocessing import LabelEncoder
 # Load or generate comprehensive allergy data
 data = pd.DataFrame({'Age': [25, 30, 35, 40, 45, 28, 32, 37, 42, 47],
                      'Gender': ['Male', 'Female', 'Male', 'Female', 'Male', 'Female', 'Male', 'Female', 'Male', 'Female'],
-                     'Ethnicity': ['Caucasian', 'African American', 'Hispanic', 'Asian', 'Caucasian', 'African American', 'Hispanic', 'Asian', 'Caucasian', 'African American'],
-                     'FoodHabits': ['Vegetarian', 'Non-Vegetarian', 'Vegan', 'Non-Vegetarian', 'Vegetarian', 'Vegan', 'Non-Vegetarian', 'Vegan', 'Vegetarian', 'Non-Vegetarian'],
-                     'Pets': ['Dog', 'Cat', 'None', 'Dog', 'None', 'Cat', 'Dog', 'None', 'Dog', 'Cat'],
                      'Location': ['Urban', 'Suburban', 'Rural', 'Urban', 'Suburban', 'Rural', 'Urban', 'Suburban', 'Urban', 'Rural'],
+                     'FamilyHistory': ['Yes', 'No', 'No', 'Yes', 'Yes', 'No', 'No', 'Yes', 'Yes', 'No'],
+                     'PreviousAllergies': ['Seasonal', 'Food', 'None', 'Seasonal', 'None', 'Food', 'Seasonal', 'None', 'Seasonal', 'Food'],
+                     'AllergiesInChildhood': ['Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No'],
+                     'DietaryPreferences': ['Vegetarian', 'Non-Vegetarian', 'Vegan', 'Non-Vegetarian', 'Vegetarian', 'Vegan', 'Non-Vegetarian', 'Vegan', 'Vegetarian', 'Non-Vegetarian'],
+                     'SmokingStatus': ['Non-Smoker', 'Ex-Smoker', 'Non-Smoker', 'Non-Smoker', 'Ex-Smoker', 'Non-Smoker', 'Non-Smoker', 'Non-Smoker', 'Ex-Smoker', 'Non-Smoker'],
+                     'AlcoholConsumption': ['Occasional', 'Regular', 'None', 'Regular', 'Occasional', 'Regular', 'Regular', 'None', 'Occasional', 'Regular'],
+                     'ExerciseHabits': ['Active', 'Inactive', 'Active', 'Inactive', 'Active', 'Active', 'Inactive', 'Active', 'Active', 'Inactive'],
+                     'AllergenExposure': ['Pets', 'Pollen', 'Dust Mites', 'Pollen', 'Pets', 'Dust Mites', 'Dust Mites', 'Pets', 'Pollen', 'Pollen'],
+                     'SymptomsInPast': ['Sneezing', 'Itching', 'Hives', 'Sneezing', 'Itching', 'Hives', 'Sneezing', 'Hives', 'Sneezing', 'Itching'],
+                     'Medications': ['Antihistamines', 'None', 'None', 'Antihistamines', 'None', 'None', 'Antihistamines', 'None', 'Antihistamines', 'None'],
+                     'FoodAllergies': ['Peanuts', 'None', 'Dairy', 'None', 'Eggs', 'None', 'Peanuts', 'None', 'None', 'Tree Nuts'],
+                     'GeneticTesting': ['Yes', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'Yes', 'No', 'No'],
                      'SeasonalAllergy': [1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
                      'FoodAllergy': [0, 1, 1, 0, 1, 0, 1, 0, 0, 1]})
 
-# Encode categorical variables (e.g., Gender, Ethnicity, FoodHabits, Pets, Location)
+# Encode categorical variables (e.g., Gender, Location, FamilyHistory, DietaryPreferences, SmokingStatus, ExerciseHabits, AllergenExposure, SymptomsInPast, Medications, FoodAllergies, GeneticTesting)
 label_encoder = LabelEncoder()
 data['Gender'] = label_encoder.fit_transform(data['Gender'])
-data['Ethnicity'] = label_encoder.fit_transform(data['Ethnicity'])
-data['FoodHabits'] = label_encoder.fit_transform(data['FoodHabits'])
-data['Pets'] = label_encoder.fit_transform(data['Pets'])
 data['Location'] = label_encoder.fit_transform(data['Location'])
+data['FamilyHistory'] = label_encoder.fit_transform(data['FamilyHistory'])
+data['PreviousAllergies'] = label_encoder.fit_transform(data['PreviousAllergies'])
+data['AllergiesInChildhood'] = label_encoder.fit_transform(data['AllergiesInChildhood'])
+data['DietaryPreferences'] = label_encoder.fit_transform(data['DietaryPreferences'])
+data['SmokingStatus'] = label_encoder.fit_transform(data['SmokingStatus'])
+data['AlcoholConsumption'] = label_encoder.fit_transform(data['AlcoholConsumption'])
+data['ExerciseHabits'] = label_encoder.fit_transform(data['ExerciseHabits'])
+data['AllergenExposure'] = label_encoder.fit_transform(data['AllergenExposure'])
+data['SymptomsInPast'] = label_encoder.fit_transform(data['SymptomsInPast'])
+data['Medications'] = label_encoder.fit_transform(data['Medications'])
+data['FoodAllergies'] = label_encoder.fit_transform(data['FoodAllergies'])
+data['GeneticTesting'] = label_encoder.fit_transform(data['GeneticTesting'])
 
 # Split data into training and testing sets
-X = data[['Age', 'Gender', 'Ethnicity', 'FoodHabits', 'Pets', 'Location']]
+X = data[['Age', 'Gender', 'Location', 'FamilyHistory', 'PreviousAllergies', 'AllergiesInChildhood', 'DietaryPreferences', 'SmokingStatus', 'AlcoholConsumption', 'ExerciseHabits', 'AllergenExposure', 'SymptomsInPast', 'Medications', 'FoodAllergies', 'GeneticTesting']]
 y = data[['SeasonalAllergy', 'FoodAllergy']]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
