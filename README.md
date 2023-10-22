@@ -56,7 +56,38 @@ To ensure the quality and reliability of my dataset, I will begin by cleaning an
 
 
 
+# new code below
+# Import necessary libraries
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, classification_report
 
+# Load your dataset
+data = pd.read_csv("import numpy as np # linear algebra import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv) ​ # Input data files are available in the read-only "../input/" directory # For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory ​ import os for dirname, _, filenames in os.walk('/kaggle/input'):     for filename in filenames:         print(os.path.join(dirname, filename))")  # Replace "import numpy as np # linear algebra import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv) ​ # Input data files are available in the read-only "../input/" directory # For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory ​ import os for dirname, _, filenames in os.walk('/kaggle/input'):     for filename in filenames:         print(os.path.join(dirname, filename))" with your dataset
+
+# Split the data into features and target variable
+X = data.drop(columns=["allergic"])
+y = data["allergic"]
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Initialize and train a random forest classifier
+clf = RandomForestClassifier(n_estimators=100, random_state=42)
+clf.fit(X_train, y_train)
+
+# Make predictions on the test set
+y_pred = clf.predict(X_test)
+
+# Calculate and print accuracy and classification report
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy}")
+print(classification_report(y_test, y_pred))
+
+# Save the trained model for future use
+import joblib
+joblib.dump(clf, "allergy_model.pkl")  # Save the model to a file
 
 
 ---
