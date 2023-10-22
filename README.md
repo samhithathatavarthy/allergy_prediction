@@ -55,63 +55,53 @@ In addition to user-specific data, I'll leverage a comprehensive general data se
 To ensure the quality and reliability of my dataset, I will begin by cleaning and preprocessing the data. This critical step involves handling missing values, encoding categorical variables, and scaling numerical features, setting the foundation for robust analysis and modeling.
 
 
-#code 2.0
-# Import necessary libraries for creating a basic user interface
-import tkinter as tk
-from tkinter import messagebox
 
-# Define a function to display a message when the user clicks the "Submit" button
-def submit_answers():
-    answers = [
-        q1_var.get(),
-        q2_var.get(),
-        q3_var.get(),
-    ]
-    
-    # Customize the messages based on the user's answers
-    message = "Thank you for completing the allergy questionnaire!\n\n"
-    
-    if "Yes" in answers:
-        message += "It appears you have or know someone with allergies. Make sure to stay informed about allergens."
-    else:
-        message += "It looks like you don't have any known allergies. Keep staying healthy!"
-    
-    messagebox.showinfo("Allergy Questionnaire", message)
 
-# Create a GUI window
-root = tk.Tk()
-root.title("Allergy Questionnaire")
+# Allergy Questionnaire
 
-# Create question labels
-question1 = tk.Label(root, text="Q1: Do you have any known allergies?")
-question2 = tk.Label(root, text="Q2: Have you ever experienced an allergic reaction to food?")
-question3 = tk.Label(root, text="Q3: Do you take any allergy medication?")
+Welcome to the Allergy Questionnaire! We'd love to hear about your experiences with allergies. Answer this simple question to get started:
 
-# Create answer options
-options = ["Yes", "No"]
+**Sample Question:**
+- **Have you ever experienced seasonal allergies, such as hay fever?**
+  - [ ] Yes
+  - [ ] No
 
-# Create variables to store the user's answers
-q1_var = tk.StringVar(root)
-q2_var = tk.StringVar(root)
-q3_var = tk.StringVar(root)
+Please check the appropriate box to indicate your response. If you're interested in sharing more about your allergies, feel free to explore the full questionnaire below.
 
-# Create dropdown menus for user selection
-q1_dropdown = tk.OptionMenu(root, q1_var, *options)
-q2_dropdown = tk.OptionMenu(root, q2_var, *options)
-q3_dropdown = tk.OptionMenu(root, q3_var, *options)
+## Allergy Questionnaire
 
-# Create a "Submit" button to get user input
-submit_button = tk.Button(root, text="Submit", command=submit_answers)
+### Question 1: Seasonal Allergies
+- **Have you ever experienced seasonal allergies, such as hay fever?**
+  - [ ] Yes
+  - [ ] No
 
-# Place widgets in the window
-question1.pack()
-q1_dropdown.pack()
-question2.pack()
-q2_dropdown.pack()
-question3.pack()
-q3_dropdown.pack()
-submit_button.pack()
+### Question 2: Food Allergies
+- **Do you have any known food allergies?**
+  - [ ] Yes
+  - [ ] No
 
-# Start the GUI event loop
-root.mainloop()
+### Question 3: Allergic Reactions
+- **Have you ever had a severe allergic reaction (anaphylaxis)?**
+  - [ ] Yes
+  - [ ] No
+
+### Question 4: Allergy Medication
+- **Do you currently take any medication for allergies?**
+  - [ ] Yes
+  - [ ] No
+
+### Question 5: Allergen Avoidance
+- **What precautions do you take to avoid allergens in your daily life? (Check all that apply)**
+  - [ ] Avoiding specific foods
+  - [ ] Using air purifiers
+  - [ ] Keeping windows closed during high pollen seasons
+  - [ ] Other (please specify): [Your answer]
+
+...
+
+[Continue with more questions or instructions]
+
+## About This Project
+
+This project aims to gather insights and experiences related to allergies. Your responses will help us understand and raise awareness about allergy-related issues. Feel free to contribute by answering the questionnaire and exploring the project details.
 
