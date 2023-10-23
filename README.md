@@ -57,7 +57,7 @@ To ensure the quality and reliability of my dataset, I will begin by cleaning an
 
 ### Sample Code
 
-Explore these code snippets to understand how to work with comprehensive allergy-related data, including demographics, pets, and location, using Python.
+Explore these code snippets to understand how to work with a diverse set of allergy-related data, including demographics, health history, and location, using Python.
 
 ```python
 import pandas as pd
